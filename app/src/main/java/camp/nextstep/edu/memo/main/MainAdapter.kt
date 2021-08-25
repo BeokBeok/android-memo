@@ -12,10 +12,10 @@ class MainAdapter(
     val onDelete: (uuid: UUID) -> Unit
 ) : ListAdapter<Memo, MainViewHolder>(object : DiffUtil.ItemCallback<Memo>() {
     override fun areItemsTheSame(oldItem: Memo, newItem: Memo): Boolean =
-        oldItem == newItem
+        oldItem.uuid == newItem.uuid
 
     override fun areContentsTheSame(oldItem: Memo, newItem: Memo): Boolean =
-        oldItem.uuid == newItem.uuid
+        oldItem == newItem
 }) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder =
